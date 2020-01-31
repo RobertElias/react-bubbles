@@ -21,7 +21,7 @@ const ColorList = ({ colors, updateColors }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-    axiosWithAuth().put(`/api/color/${colorToEdit}.id`, colorToEdit)
+    axiosWithAuth().put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then( () => {
         alert('Color has been updated')
         axiosWithAuth().get('/api/colors')
@@ -35,9 +35,9 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     // make a delete request to delete this color
-    axiosWithAuth().delete('/api/colors')
+    axiosWithAuth().delete(`/api/colors/${color.id}`)
       .then(()=> {
-        alert('COlor has been Deleted!!')
+        alert('Color has been Deleted!!')
         axiosWithAuth().get('/api/colors')
           .then(res => updateColors(res.data))
           .catch(err => console.log(err))
@@ -98,6 +98,7 @@ const ColorList = ({ colors, updateColors }) => {
           </label>
           <div className="button-row">
             <button type="submit">save</button>
+            
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
