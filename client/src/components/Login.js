@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import axios from 'axios';
+
 
 const Login = (props) => {
  
@@ -34,6 +34,28 @@ const Login = (props) => {
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <p>Build a login page here</p>
+      <form onSubmit={(e) => {
+         e.preventDefault()
+         handleSubmit()
+         }}>
+
+        <input 
+        type="text" 
+        name='username' 
+        placeholder="UserName" 
+        value={form.name} 
+        onchange={handleChange}
+        />
+        
+        <input 
+        type="password" 
+        name="password" 
+        placeholder="Password" 
+        value={form.password} 
+        onChange={handleChange}
+        />
+        <button type='submit'>Login</button>
+      </form>
 
     </div>
   );
