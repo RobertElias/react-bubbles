@@ -44,7 +44,7 @@ const Login = (props) => {
         name='username' 
         placeholder="UserName" 
         value={form.name} 
-        onchange={handleChange}
+        onChange={handleChange}
         />
         
         <input 
