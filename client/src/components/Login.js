@@ -54,9 +54,9 @@ const Login = (props) => {
         value={form.password} 
         onChange={handleChange}
         />
-        <button type='submit'>Login</button>
+        
       </form>
-
+      <button type='submit'>Login</button>
     </div>
   );
 };
